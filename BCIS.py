@@ -5,6 +5,7 @@ def BCIS(array, left, right):
     SL = left
     SR = right
     while SL < SR:
+        # penentuan posisi LC dan RC
         swap(array, SR, SL + ((SR - SL) // 2))
         if array[SL] == array[SR]:
             if is_equal(array, SL, SR) == -1:
@@ -21,6 +22,8 @@ def BCIS(array, left, right):
 
         LC = array[SL]
         RC = array[SR]
+
+        # main code on sort trip
         while i < SR:
             curr_item = array[i]
             if curr_item >= RC:
@@ -37,3 +40,7 @@ def BCIS(array, left, right):
         SL += 1
         SR -= 1    
         
+if __name__ == '__main__':
+    lst = file_to_array('dataset/small/random.txt')
+    BCIS(lst, 0, len(lst) - 1)
+    print(lst)

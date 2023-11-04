@@ -1,3 +1,5 @@
+from util_functions import *
+
 def counting_sort(A):
     n = len(A)
     B = [None] * n
@@ -16,3 +18,8 @@ def counting_sort(A):
     for j in range(n - 1, -1, -1):
         B[C[A[j]]] = A[j]
         C[A[j]] -= 1
+    return B
+
+if __name__ == '__main__':
+    lst = file_to_array('dataset/small/random.txt')
+    print(counting_sort(lst))
